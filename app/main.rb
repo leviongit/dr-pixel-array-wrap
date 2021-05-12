@@ -1,4 +1,4 @@
-require 'lib/pixel_array.rb'
+require 'lib/golf_pixel_array.rb'
 
 ################################################################################
 # 1. SETUP :
@@ -20,7 +20,7 @@ def setup(args)
   # Set some pixels :
   (height >> 1).times do |y|
     width.times do |x|
-      args.state.pa1.set_pixel_bt x, y, 0xAAFF0055
+      args.state.pa1.set_pixel x, y, 0xAAFF0055
     end
   end
 

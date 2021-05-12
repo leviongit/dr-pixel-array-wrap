@@ -1,4 +1,4 @@
-#include "pixel_array.h"
+#include "golf_pixel_array.h"
 #include "errhandler.h"
 #include <stdint.h>
 #include <stdio.h>
@@ -84,10 +84,6 @@ uint32_t get_pixel(const PixelArray *pixel_array, size_t x, size_t y) {
   return unsafe_get_pixel(pixel_array, x, y);
 }
 
-uint32_t get_pixel_bt(const PixelArray *pixel_array, size_t x, size_t y) {
-  return get_pixel(pixel_array, x, (pixel_array->height - 1) - y);
-}
-
 void unsafe_set_pixel(PixelArray *pixel_array, size_t x, size_t y,
                       uint32_t color) {
   pixel_array->pixels[x + pixel_array->width * y] = color;
@@ -104,10 +100,6 @@ void set_pixel(PixelArray *pixel_array, size_t x, size_t y, uint32_t color) {
   __HANDLE_ERROR(errcode, return;)
 
   unsafe_set_pixel(pixel_array, x, y, color);
-}
-
-void set_pixel_bt(PixelArray *pixel_array, size_t x, size_t y, uint32_t color) {
-  set_pixel(pixel_array, x, (pixel_array->height - 1) - y, color);
 }
 
 // --- Copy :
