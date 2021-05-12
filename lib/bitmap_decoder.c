@@ -14,7 +14,7 @@ void decode_uint64(const uint64_t bitmask, PixelArray *pixel_array) {
 }
 
 uint64_t encode_pixel_array(const PixelArray *pixel_array) {
-  if (!(pixel_array->width > 7 && pixel_array->height > 7)) {
+  if (!(pixel_array->width == 8 && pixel_array->height == 8)) {
     return -1;
   }
   uint64_t num = 0;
