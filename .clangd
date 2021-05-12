@@ -1,0 +1,2 @@
+CompileFlags:
+  Add: [-shared, -isystem include, -lc, -I../include, -I., -fPIC, -xc]
