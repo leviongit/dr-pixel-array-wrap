@@ -1,3 +1,6 @@
+#ifndef PIXEL_ARRAY_H
+#define PIXEL_ARRAY_H
+
 #include <stddef.h>
 #include <stdint.h>
 
@@ -60,3 +63,5 @@ void unsafe_copy(const PixelArray *src, PixelArray *dest, size_t sx, size_t sy,
                  size_t sw, size_t sh, size_t dx, size_t dy);
 void copy(const PixelArray *src, PixelArray *dest, size_t sx, size_t sy,
           size_t sw, size_t sh, size_t dx, size_t dy);
+
+#endif

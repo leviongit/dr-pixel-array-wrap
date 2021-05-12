@@ -1,6 +1,7 @@
 $gtk.reset
 
 require 'lib/pixel_array.rb'
+require 'lib/bitmap_decoder.rb'
 
 ################################################################################
 # 1. SETUP :

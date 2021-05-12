@@ -1,3 +1,6 @@
+#ifndef ERRHANDLER_H
+#define ERRHANDLER_H
+
 #include "stdio.h"
 
 #define __ERROR_CHECK(cond, erropt, errname, errmsg, args...)                  \
@@ -8,4 +11,6 @@
 
 #define __HANDLE_ERROR(errvar, handle)                                         \
   if (errvar)                                                                  \
-  handle\
+  handle
+
+#endif
