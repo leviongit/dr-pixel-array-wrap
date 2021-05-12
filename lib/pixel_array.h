@@ -43,7 +43,6 @@ size_t get_pixel_array_height(const PixelArray *pixel_array);
 // --- Update :
 void upload_pixel_array(const PixelArray *pixel_array);
 
-// --- Drawing :
 // --- Clearing the console :
 void clear_pixel_array(PixelArray *pixel_array);
 
