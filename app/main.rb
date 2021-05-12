@@ -1,3 +1,5 @@
+$gtk.reset
+
 require 'lib/pixel_array.rb'
 
 ################################################################################
@@ -13,31 +15,27 @@ def setup(args)
                                  width, height,  # width and height
                                  4 )             # scale
 
-  args.state.pa2  = PXArray.new( 512, 230,
+  args.state.pa2  = PXArray.new( 512, 300,
                                  width, height,
                                  4, "pxarr2")
 
   # Set some pixels :
   (height >> 1).times do |y|
     width.times do |x|
-      args.state.pa1.set_pixel x, y, 0xAAFF0055
+      args.state.pa1.set_pixel_bt x, y, 0xAAFF0055
     end
   end
 
   # Copy some pixels :
-  args.state.pa2.copy 0, 0,
+  args.state.pa2.copy 0, 32,
                     args.state.pa1,
-                    0, 0, 30, 16
-  args.state.pa2.copy 33, 0,
+                    0, 32, 31, 16
+  args.state.pa2.copy 33, 32,
                     args.state.pa1,
-                    0, 16, 31, 16
+                    0, 32, 31, 16
 
   args.state.setup_done = true
 end
-
-
-
-$gtk.reset
 
 ################################################################################
 # 2. MAIN LOOP :
