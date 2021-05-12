@@ -1,4 +1,4 @@
-$gtk.ffi_misc.gtk_dlopen("golf_pixel_array")
+$gtk.ffi_misc.gtk_dlopen("pixel_array")
 
 class PXArray
   def initialize(x,y,width,height,scale,name="pixel_array")
@@ -55,15 +55,28 @@ class PXArray
     [color&0xFF, (color>>8)&0xFF, (color>>16)&0xFF]
   end
 
-  def set_pixel(x,y,*color)
+  def get_pixel_bt(x,y)
+    color = FFI::PXArray::get_pixel_bt(@ptr,x,y);
+    [color&0xFF, (color>>8)&0xFF, (color>>16)&0xFF]
+  end
+
+  def __set_overload(color)
     case color.length
     when 1
-      FFI::PXArray::set_pixel(@ptr, x, y, color[0])
+      color[0]
     when 3
-      FFI::PXArray::set_pixel(@ptr, x, y, 0xFF000000 | (color[2].to_byte << 16) | (color[1].to_byte << 8) | color[0].to_byte)
+      0xFF000000 | (color[2].to_byte << 16) | (color[1].to_byte << 8) | color[0].to_byte
     when 4
-      FFI::PXArray::set_pixel(@ptr, x, y, (color[3].to_byte << 24) | (color[2].to_byte << 16) | (color[1].to_byte << 8) | color[0].to_byte)
+      (color[3].to_byte << 24) | (color[2].to_byte << 16) | (color[1].to_byte << 8) | color[0].to_byte
     end
+  end
+
+  def set_pixel(x,y,*color)
+    FFI::PXArray::set_pixel(@ptr, x, y, __set_overload(color))
+  end
+
+  def set_pixel_bt(x,y,*color)
+    FFI::PXArray::set_pixel_bt(@ptr, x, y, __set_overload(color))
   end
 
   def copy(x,y,source,source_x,source_y,source_w,source_h)
