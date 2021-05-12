@@ -1,9 +1,9 @@
 OS := $(shell uname)
 
-CEXT_NAME=golf_pixel_array
+CEXT_NAME=pixel_array
 CEXT_EXTENSION=.h
 CEXT_PATH=lib/
-CEXT_FILES=golf_pixel_array.c
+CEXT_FILES=pixel_array.c
 CEXT_SRC=$(addprefix $(CEXT_PATH),$(CEXT_FILES))
 BINDER=../dragonruby-bind
 BINDER_FFI_MODULE=PXArray
