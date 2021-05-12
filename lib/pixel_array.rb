@@ -21,25 +21,31 @@ module Addons
       FFI::CPXArray::upload_pixel_array(@ptr)
     end
 
-    def render_as_sprite(args)
+    def render_as_sprite(args, r: nil, g: nil, b: nil)
       __render
       args.outputs.sprites << {
         x: @x,
         y: @y,
         w: @render_width,
         h: @render_height,
-        path: @name.to_sym
+        path: @name.to_sym,
+        r: r || 255,
+        g: g || 255,
+        b: b || 255
       }
     end
 
-    def render_as_primitive(args)
+    def render_as_primitive(args, r: nil, g: nil, b: nil)
       __render
       args.outputs.primitives << {
         x: @x,
         y: @y,
         w: @render_width,
         h: @render_height,
-        path: @name.to_sym
+        path: @name.to_sym,
+        r: r || 255,
+        g: g || 255,
+        b: b || 255
       }.sprite
     end
 
@@ -89,6 +95,14 @@ module Addons
       source_w,
       source_h,
       x, y )
+    end
+
+    def dumpdata
+      @height.times do |y|
+        @width.times do |x|
+          puts get_pixel(x,y)
+        end
+      end
     end
   end
 end
