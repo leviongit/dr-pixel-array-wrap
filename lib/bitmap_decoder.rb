@@ -1,4 +1,4 @@
-# $gtk.ffi_misc.gtk_dlopen("pixel_array")
+$gtk.ffi_misc.gtk_dlopen("pixel_array")
 
 module Addons
   class Bitmap
