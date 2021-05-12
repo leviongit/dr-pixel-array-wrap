@@ -49,9 +49,11 @@ void clear_pixel_array(PixelArray *pixel_array);
 // --- Single Pixels :
 uint32_t unsafe_get_pixel(const PixelArray *pixel_array, size_t x, size_t y);
 uint32_t get_pixel(const PixelArray *pixel_array, size_t x, size_t y);
+uint32_t get_pixel_bt(const PixelArray *pixel_array, size_t x, size_t y);
 void unsafe_set_pixel(PixelArray *pixel_array, size_t x, size_t y,
                       uint32_t color);
 void set_pixel(PixelArray *pixel_array, size_t x, size_t y, uint32_t color);
+void set_pixel_bt(PixelArray *pixel_array, size_t x, size_t y, uint32_t color);
 
 // --- Copy :
 void unsafe_copy(const PixelArray *src, PixelArray *dest, size_t sx, size_t sy,

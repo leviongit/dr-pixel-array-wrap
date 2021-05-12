@@ -1,4 +1,4 @@
-require 'lib/golf_pixel_array.rb'
+require 'lib/pixel_array.rb'
 
 ################################################################################
 # 1. SETUP :

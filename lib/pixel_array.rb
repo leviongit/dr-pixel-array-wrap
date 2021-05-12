@@ -1,4 +1,4 @@
-$gtk.ffi_misc.gtk_dlopen("golf_pixel_array")
+$gtk.ffi_misc.gtk_dlopen("pixel_array")
 
 module Addons
   class PXArray
@@ -52,7 +52,6 @@ module Addons
       [color&0xFF, (color>>8)&0xFF, (color>>16)&0xFF]
     end
 
-<<<<<<< HEAD
     def get_pixel_bt(x,y)
       color = FFI::CPXArray::get_pixel_bt(@ptr,x,y);
       [color&0xFF, (color>>8)&0xFF, (color>>16)&0xFF]
@@ -67,19 +66,8 @@ module Addons
       when 4
         (color[3].to_byte << 24) | (color[2].to_byte << 16) | (color[1].to_byte << 8) | color[0].to_byte
       end
-=======
-  def set_pixel(x,y,*color)
-    case color.length
-    when 1
-      FFI::PXArray::set_pixel(@ptr, x, y, color[0])
-    when 3
-      FFI::PXArray::set_pixel(@ptr, x, y, 0xFF000000 | (color[2].to_byte << 16) | (color[1].to_byte << 8) | color[0].to_byte)
-    when 4
-      FFI::PXArray::set_pixel(@ptr, x, y, (color[3].to_byte << 24) | (color[2].to_byte << 16) | (color[1].to_byte << 8) | color[0].to_byte)
->>>>>>> parent of 767fe17 (why doesn't dragonruby find things)
     end
 
-<<<<<<< HEAD
     def set_pixel(x,y,*color)
       FFI::CPXArray::set_pixel(@ptr, x, y, __set_overload(color))
     end
@@ -101,13 +89,6 @@ module Addons
       source_w,
       source_h,
       x, y )
-=======
-  def copy(x,y,source,source_x,source_y,source_w,source_h)
-    if !$gtk.production
-      puts "source: #{source.pixel_array_ptr}"
-      puts "dest(self): #{@ptr}"
-      puts "x:#{x} - y:#{y} - sx:#{source_x} - sy:#{source_y} - sw:#{source_w} - sh:#{source_h}"
->>>>>>> parent of 767fe17 (why doesn't dragonruby find things)
     end
   end
 end
