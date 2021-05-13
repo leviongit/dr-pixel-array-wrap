@@ -65,7 +65,7 @@ void clear_pixel_array(PixelArray *pixel_array) {
       pixel_array->pixels[x + pixel_array->width * y] = C0;
 }
 
-// --- Single piwels :
+// --- Single pixels :
 
 uint32_t unsafe_get_pixel(const PixelArray *pixel_array, size_t x, size_t y) {
   return pixel_array->pixels[x + pixel_array->width * y];
