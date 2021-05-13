@@ -76,18 +76,6 @@ module Addons
       FFI::CPXArray::set_pixel_bt(@ptr, x, y, __set_overload(color))
     end
 
-    def draw_horizontal_line(x1,x2,y,color)
-      FFI::CPXArray::draw_horizontal_line(@ptr, x1, x2, y, color)
-    end
-
-    def draw_vertical_line(x,y1,y2,color)
-      FFI::CPXArray::draw_vertical_line(@ptr, x, y1, y2, color)
-    end
-
-    def draw_line(x1,y1,x2,y2,color)
-      FFI::CPXArray::draw_line(@ptr, x1, y1, x2, y2, color)
-    end
-
     def copy(x,y,source,source_x,source_y,source_w,source_h)
       if !$gtk.production
         puts "source: #{source.pixel_array_ptr}"

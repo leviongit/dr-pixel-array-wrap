@@ -1,5 +1,6 @@
 require 'lib/pixel_array.rb'
 require 'lib/bitmap_decoder.rb'
+require 'lib/lines.rb'
 
 ################################################################################
 # 1. SETUP :
