@@ -5,3 +5,4 @@ native/**
 logs
 metadata
 exceptions
+include
