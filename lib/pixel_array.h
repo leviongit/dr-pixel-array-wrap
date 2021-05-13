@@ -58,6 +58,11 @@ void unsafe_set_pixel(PixelArray *pixel_array, size_t x, size_t y,
 void set_pixel(PixelArray *pixel_array, size_t x, size_t y, uint32_t color);
 void set_pixel_bt(PixelArray *pixel_array, size_t x, size_t y, uint32_t color);
 
+// --- Lines :
+void draw_horizontal_line(PixelArray *pixel_array,size_t x1,size_t x2,size_t y,uint32_t color);
+void draw_vertical_line(PixelArray *pixel_array,size_t x,size_t y1,size_t y2,uint32_t color);
+void draw_line(PixelArray *pixel_array,size_t x1,size_t y1,size_t x2,size_t y2,uint32_t color);
+
 // --- Copy :
 void unsafe_copy(const PixelArray *src, PixelArray *dest, size_t sx, size_t sy,
                  size_t sw, size_t sh, size_t dx, size_t dy);

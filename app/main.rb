@@ -25,6 +25,11 @@ def setup(args)
     end
   end
 
+  # Drawn some lines :
+  args.state.pa1.draw_horizontal_line 1, 62, 31, 0xFF0000FF
+  args.state.pa1.draw_vertical_line 31, 1, 62, 0xFF00FF00
+  args.state.pa1.draw_line 1, 1, 62, 62, 0xFFFF0000
+
   # Copy some pixels :
   args.state.pa2.copy 0, 0,
                     args.state.pa1,
