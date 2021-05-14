@@ -10,8 +10,8 @@ BINDER_FFI_MODULE=CPXArray
 BINDER_OUTPUT_EXTENSION=-bindings.c
 CC=clang
 CFLAGS=-shared -isystem include -lc -I../include -I. -fPIC
-PRODUCTION_FLAGS=-O3
-DEBUG_FLAGS=-g -O0 -DDEBUG_BUILD
+PRODUCTION_FLAGS=-O3 -Wall
+DEBUG_FLAGS=-g -O0 -DDEBUG_BUILD -Wall
 ifeq ($(OS),Darwin)
 	DYLIB_PATH=native/macos/
 	DYLIB_EXTENSION=.dylib
