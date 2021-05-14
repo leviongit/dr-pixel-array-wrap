@@ -11,6 +11,7 @@ module Addons
       @scale          = scale
       @render_width   = scale * width
       @render_height  = scale * height
+      @vertices       = FFI::CPXArray::get_polygon_vertices_array(@ptr)
     end
 
     def pixel_array_ptr
