@@ -11,8 +11,8 @@ module Addons
     end
 
     def stroke_polygon(vertices,color)
-      vertices.each_cons(2) { |pair| FFI::CPXArray.draw_line(*(pair.flatten)) }
-      FFI::CPXArray.draw_line(*(vertices.last + vertices.first).flatten,color)
+      vertices.each_cons(2) { |pair| FFI::CPXArray.draw_line(@ptr,*(pair.flatten)) }
+      FFI::CPXArray.draw_line(@ptr,*(vertices.last + vertices.first).flatten,color)
     end
 
     def get_polygon_vertices_array

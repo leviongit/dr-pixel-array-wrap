@@ -36,14 +36,15 @@ def setup(args)
   args.state.pa1.stroke_rectangle 2, 3, 10, 20, 0xFF0000FF
   args.state.pa1.fill_rectangle 4, 5, 7, 17, 0xFF00FF00
   args.state.pa1.fill_polygon [[4,5], [2,15], [17,18], [19,3]], 0xFFFF0000
+  args.state.pa1.stroke_polygon [[4,5], [2,15], [17,18], [19,3]], 0xFFFFFF00
 
   # Copy some pixels :
   args.state.pa2.copy 0, 0,
-                    args.state.pa1,
-                    0, 0, 30, 16
+                      args.state.pa1,
+                      0, 0, 30, 16
   args.state.pa2.copy 33, 0,
-                    args.state.pa1,
-                    0, 16, 31, 16
+                      args.state.pa1,
+                      0, 16, 31, 16
 
   args.state.setup_done = true
 end
