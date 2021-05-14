@@ -37,4 +37,10 @@ args.state.pxa.stroke_rectangle 2, 3, 10, 20, 0xFF0000FF
 
 # Fill rectangle :
 args.state.pxa.fill_rectangle 4, 5, 7, 17, 0xFF00FF00
+
+# Stroke arbitrary (up to 64 vertices) CONVEX polygon :
+args.state.pa1.stroke_polygon [[4,5], [2,15], [17,18], [19,3]], 0xFFFFFF00
+
+# Fill arbitrary (up to 64 vertices) CONVEX polygon :
+args.state.pa1.fill_polygon [[4,5], [2,15], [17,18], [19,3]], 0xFFFF0000
 ```
