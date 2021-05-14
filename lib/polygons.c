@@ -1,5 +1,7 @@
-#include "pixel_array.h"
 #include "polygons.h"
+#include "lines.h"
+#include "pixel_array.h"
+#include <stdlib.h>
 
 // --- Rectangles :
 void stroke_rectangle(PixelArray* pixel_array,uint32_t x,uint32_t y,uint32_t width,uint32_t height,uint32_t color) {

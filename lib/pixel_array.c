@@ -73,11 +73,11 @@ void clear_pixel_array(PixelArray *pixel_array) {
 
 // --- Single pixels :
 
-uint32_t unsafe_get_pixel(const PixelArray *pixel_array, size_t x, size_t y) {
+uint32_t unsafe_get_pixel(const PixelArray *pixel_array, uint32_t x, uint32_t y) {
   return pixel_array->pixels[x + pixel_array->width * y];
 }
 
-uint32_t get_pixel(const PixelArray *pixel_array, size_t x, size_t y) {
+uint32_t get_pixel(const PixelArray *pixel_array, uint32_t x, uint32_t y) {
   int errcode = 0;
   __ERROR_CHECK(x > pixel_array->width, errcode = 1, "X-CORDERR",
                 "Out-of-bounds X array access max %lu: provided %lu",
@@ -90,16 +90,16 @@ uint32_t get_pixel(const PixelArray *pixel_array, size_t x, size_t y) {
   return unsafe_get_pixel(pixel_array, x, y);
 }
 
-uint32_t get_pixel_bt(const PixelArray *pixel_array, size_t x, size_t y) {
+uint32_t get_pixel_bt(const PixelArray *pixel_array, uint32_t x, uint32_t y) {
   return get_pixel(pixel_array, x, (pixel_array->height - 1) - y);
 }
 
-void unsafe_set_pixel(PixelArray *pixel_array, size_t x, size_t y,
+void unsafe_set_pixel(PixelArray *pixel_array, uint32_t x, uint32_t y,
                       uint32_t color) {
   pixel_array->pixels[x + pixel_array->width * y] = color;
 }
 
-void set_pixel(PixelArray *pixel_array, size_t x, size_t y, uint32_t color) {
+void set_pixel(PixelArray *pixel_array, uint32_t x, uint32_t y, uint32_t color) {
   int errcode = 0;
   __ERROR_CHECK(x > pixel_array->width, errcode = 1, "X-CORDERR",
                 "Out-of-bounds X array access max %lu: provided %lu",
@@ -112,20 +112,20 @@ void set_pixel(PixelArray *pixel_array, size_t x, size_t y, uint32_t color) {
   unsafe_set_pixel(pixel_array, x, y, color);
 }
 
-void set_pixel_bt(PixelArray *pixel_array, size_t x, size_t y, uint32_t color) {
+void set_pixel_bt(PixelArray *pixel_array, uint32_t x, uint32_t y, uint32_t color) {
   set_pixel(pixel_array, x, (pixel_array->height - 1) - y, color);
 }
 
 // --- Copy :
 
-void unsafe_copy(const PixelArray *src, PixelArray *dest, size_t sx, size_t sy,
+void unsafe_copy(const PixelArray *src, PixelArray *dest, uint32_t sx, uint32_t sy,
                  size_t sw, size_t sh, size_t dx, size_t dy) {
   for (size_t i = 0; i < sh; ++i)
     memcpy(dest->pixels + dx + ((dy + i) * dest->width),
            src->pixels + dx + ((sy + i) * src->width), sw * sizeof(uint32_t));
 }
 
-void copy(const PixelArray *src, PixelArray *dest, size_t sx, size_t sy,
+void copy(const PixelArray *src, PixelArray *dest, uint32_t sx, uint32_t sy,
           size_t sw, size_t sh, size_t dx, size_t dy) {
   int errcode = 0;
   __ERROR_CHECK(dy + sh > dest->height, errcode = 1, "DESTERR",
