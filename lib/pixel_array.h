@@ -7,6 +7,8 @@
 /******************************************************************************/
 /* CONSTANTS :                                                                */
 /******************************************************************************/
+#define MAX_VERTICES  64
+
 #define C0 0x00000000
 #define RED 0xFFFF0000
 #define GREEN 0xFF00FF00
@@ -23,10 +25,16 @@ typedef void (*drb_upload_pixel_array_fn)(const char *name, const int w,
 
 /* ---=== FOR THE PIXEL ARRAY : ===--- */
 typedef struct PixelArray {
+  char *name;
+
   size_t width;
   size_t height;
   uint32_t *pixels;
-  char *name;
+
+  uint32_t* left_scan;
+  uint32_t* right_scan;
+  uint32_t* vertices;
+  size_t    vertex_count;
 
   drb_upload_pixel_array_fn drb_upload_pixel_array;
 } PixelArray;
@@ -46,7 +54,7 @@ size_t get_pixel_array_height(const PixelArray *pixel_array);
 // --- Update :
 void upload_pixel_array(const PixelArray *pixel_array);
 
-// --- Clearing the console :
+// --- Clearing the pixel array :
 void clear_pixel_array(PixelArray *pixel_array);
 
 // --- Single Pixels :

@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 // --- Lines :
-void draw_horizontal_line(PixelArray *pixel_array, size_t x1, size_t x2,
-                          size_t y, uint32_t color) {
+
+void draw_horizontal_line(PixelArray *pixel_array,uint32_t x1,uint32_t x2,uint32_t y,uint32_t color) {
   uint32_t start, end;
 
   if (x1 <= x2) {
@@ -18,8 +18,8 @@ void draw_horizontal_line(PixelArray *pixel_array, size_t x1, size_t x2,
     pixel_array->pixels[x + pixel_array->width * y] = color;
 }
 
-void draw_vertical_line(PixelArray *pixel_array, size_t x, size_t y1, size_t y2,
-                        uint32_t color) {
+
+void draw_vertical_line(PixelArray *pixel_array,uint32_t x,uint32_t y1,uint32_t y2,uint32_t color) {
   uint32_t start, end;
 
   if (y1 <= y2) {
@@ -34,8 +34,8 @@ void draw_vertical_line(PixelArray *pixel_array, size_t x, size_t y1, size_t y2,
     pixel_array->pixels[x + pixel_array->width * y] = color;
 }
 
-void draw_line(PixelArray *pixel_array, size_t x1, size_t y1, size_t x2,
-               size_t y2, uint32_t color) {
+
+void draw_line(PixelArray *pixel_array,uint32_t x1,uint32_t y1,uint32_t x2,uint32_t y2,uint32_t color) {
   int32_t x, y, dx, dy, x_increment, y_increment, d;
 
   // Set-up of the bresenham algorythm :

@@ -26,6 +26,12 @@ PixelArray *new_pixel_array(size_t width, size_t height, char *name) {
       pixel_array->width * pixel_array->height, sizeof(uint32_t));
   clear_pixel_array(pixel_array);
 
+  // --- Polygons rasterizing arrays :
+  pixel_array->left_scan    = (uint32_t*)calloc(height, sizeof(uint32_t));
+  pixel_array->right_scan   = (uint32_t*)calloc(height, sizeof(uint32_t));
+  pixel_array->vertices     = (uint32_t*)calloc(2*MAX_VERTICES, sizeof(uint32_t));
+  pixel_array->vertex_count = 0;
+
   // --- Miscellaneous :
   pixel_array->drb_upload_pixel_array =
       drb_symbol_lookup("drb_upload_pixel_array");
