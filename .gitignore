@@ -1,3 +1,8 @@
 *~
 native/**
 *-bindings.c
+*.toml
+logs
+metadata
+exceptions
+include
