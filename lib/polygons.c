@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "pixel_array.h"
 #include "polygons.h"
 
