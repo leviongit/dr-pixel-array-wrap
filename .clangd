@@ -1,2 +1,2 @@
 CompileFlags:
-  Add: [-shared, -isystem include, -lc, -I../include, -I., -fPIC, -xc]
+  Add: [-shared, -isystem include, -lc, -I../include, -I., -fPIC, -xc, -DDEBUG_BUILD]

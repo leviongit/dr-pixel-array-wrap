@@ -7,7 +7,7 @@
 /******************************************************************************/
 /* CONSTANTS :                                                                */
 /******************************************************************************/
-#define MAX_VERTICES  64
+#define MAX_VERTICES 64
 
 #define C0 0x00000000
 #define RED 0xFFFF0000
@@ -31,10 +31,10 @@ typedef struct PixelArray {
   size_t height;
   uint32_t *pixels;
 
-  uint32_t* left_scan;
-  uint32_t* right_scan;
-  uint32_t* vertices;
-  size_t    vertex_count;
+  uint32_t *left_scan;
+  uint32_t *right_scan;
+  uint32_t *vertices;
+  size_t vertex_count;
 
   drb_upload_pixel_array_fn drb_upload_pixel_array;
 } PixelArray;
@@ -58,17 +58,21 @@ void upload_pixel_array(const PixelArray *pixel_array);
 void clear_pixel_array(PixelArray *pixel_array);
 
 // --- Single Pixels :
-uint32_t unsafe_get_pixel(const PixelArray *pixel_array, uint32_t x, uint32_t y);
+uint32_t unsafe_get_pixel(const PixelArray *pixel_array, uint32_t x,
+                          uint32_t y);
 uint32_t get_pixel(const PixelArray *pixel_array, uint32_t x, uint32_t y);
 uint32_t get_pixel_bt(const PixelArray *pixel_array, uint32_t x, uint32_t y);
-void unsafe_set_pixel(PixelArray *pixel_array, uint32_t x, uint32_t y, uint32_t color);
+void unsafe_set_pixel(PixelArray *pixel_array, uint32_t x, uint32_t y,
+                      uint32_t color);
 void set_pixel(PixelArray *pixel_array, uint32_t x, uint32_t y, uint32_t color);
-void set_pixel_bt(PixelArray *pixel_array, uint32_t x, uint32_t y, uint32_t color);
+void set_pixel_bt(PixelArray *pixel_array, uint32_t x, uint32_t y,
+                  uint32_t color);
 
 // --- Copy :
-void unsafe_copy(const PixelArray *src, PixelArray *dest, uint32_t sx, uint32_t sy,
-                 size_t sw, size_t sh, size_t dx, size_t dy);
+void unsafe_copy(const PixelArray *src, PixelArray *dest, uint32_t sx,
+                 uint32_t sy, uint32_t sw, uint32_t sh, uint32_t dx,
+                 uint32_t dy);
 void copy(const PixelArray *src, PixelArray *dest, uint32_t sx, uint32_t sy,
-          size_t sw, size_t sh, size_t dx, size_t dy);
+          uint32_t sw, uint32_t sh, uint32_t dx, uint32_t dy);
 
 #endif
