@@ -58,18 +58,17 @@ void upload_pixel_array(const PixelArray *pixel_array);
 void clear_pixel_array(PixelArray *pixel_array);
 
 // --- Single Pixels :
-uint32_t unsafe_get_pixel(const PixelArray *pixel_array, size_t x, size_t y);
-uint32_t get_pixel(const PixelArray *pixel_array, size_t x, size_t y);
-uint32_t get_pixel_bt(const PixelArray *pixel_array, size_t x, size_t y);
-void unsafe_set_pixel(PixelArray *pixel_array, size_t x, size_t y,
-                      uint32_t color);
-void set_pixel(PixelArray *pixel_array, size_t x, size_t y, uint32_t color);
-void set_pixel_bt(PixelArray *pixel_array, size_t x, size_t y, uint32_t color);
+uint32_t unsafe_get_pixel(const PixelArray *pixel_array, uint32_t x, uint32_t y);
+uint32_t get_pixel(const PixelArray *pixel_array, uint32_t x, uint32_t y);
+uint32_t get_pixel_bt(const PixelArray *pixel_array, uint32_t x, uint32_t y);
+void unsafe_set_pixel(PixelArray *pixel_array, uint32_t x, uint32_t y, uint32_t color);
+void set_pixel(PixelArray *pixel_array, uint32_t x, uint32_t y, uint32_t color);
+void set_pixel_bt(PixelArray *pixel_array, uint32_t x, uint32_t y, uint32_t color);
 
 // --- Copy :
-void unsafe_copy(const PixelArray *src, PixelArray *dest, size_t sx, size_t sy,
+void unsafe_copy(const PixelArray *src, PixelArray *dest, uint32_t sx, uint32_t sy,
                  size_t sw, size_t sh, size_t dx, size_t dy);
-void copy(const PixelArray *src, PixelArray *dest, size_t sx, size_t sy,
+void copy(const PixelArray *src, PixelArray *dest, uint32_t sx, uint32_t sy,
           size_t sw, size_t sh, size_t dx, size_t dy);
 
 #endif
