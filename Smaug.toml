@@ -1,0 +1,16 @@
+[package]
+name = "pixel-array"
+authors = ["leviongit <levi.duncan.self@gmail.com>",
+           "sojastar <sojastar07@gmail.com>"]
+version = "0.1.0"
+repository = "https://github.com/leviongit/dr-pixel-array-wrap"
+
+requires = ["lib/pixel_array.rb"]
+
+
+[package.installs]
+"lib" = "app/lib/pixel-array"
+
+[dragonruby]
+version = "2"
+edition = "pro"
